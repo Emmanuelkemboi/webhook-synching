@@ -29,21 +29,37 @@
 
     <h2>System B — Received Orders</h2>
 
-    <p>{% if orders %}
+{% if received_orders %}
 
-        {% for order in orders %}
+    {% for order in received_orders %}
 
-    <p>
-        {{ order.product }} × {{ order.quantity }}
-    </p>
+        <p>
+            {{ order.product }} × {{ order.quantity }}
+        </p>
 
     {% endfor %}
 
-    {% else %}
+{% else %}
 
     <p>No orders received yet.</p>
 
-    {% endif %}
+{% endif %}
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
     </p>
 
 </body>

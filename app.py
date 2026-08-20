@@ -3,12 +3,17 @@ import requests
 
 app = Flask(__name__)
 
-orders = []
 
+orders = []
+received_orders = []
 
 @app.route("/")
 def home():
-    return render_template("index.html", orders=orders)
+   return render_template(
+    "index.html",
+    orders=orders,
+    received_orders=received_orders
+)
 
 
 @app.route("/order", methods=["POST"])
@@ -34,6 +39,7 @@ def create_order():
 @app.route("/webhook", methods=["POST"])
 def webhook():
     data = request.get_json()
+    received_orders.append(data)
 
     print("Webhook received:", data)
 
