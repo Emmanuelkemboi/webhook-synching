@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Order Synchronization</title>
 </head>
@@ -12,23 +13,38 @@
 
     <form action="/order" method="POST">
 
-    <label>Product:</label>
-    <input type="text" name="product" placeholder="Enter product" required>
+        <label>Product:</label>
+        <input type="text" name="product" placeholder="Enter product" required>
 
-    <br><br>
+        <br><br>
 
-    <label>Quantity:</label>
-    <input type="number" name="quantity" placeholder="Enter quantity" required>
+        <label>Quantity:</label>
+        <input type="number" name="quantity" placeholder="Enter quantity" required>
 
-    <br><br>
+        <br><br>
 
-    <button type="submit">Place Order</button>
+        <button type="submit">Place Order</button>
 
-</form>
-    
+    </form>
+
     <h2>System B — Received Orders</h2>
 
+    <p>{% if orders %}
+
+        {% for order in orders %}
+
+    <p>
+        {{ order.product }} × {{ order.quantity }}
+    </p>
+
+    {% endfor %}
+
+    {% else %}
+
     <p>No orders received yet.</p>
+
+    {% endif %}
+    </p>
 
 </body>
 </html>
