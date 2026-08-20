@@ -10,20 +10,22 @@
 
     <h2>System A — Create Order</h2>
 
-    <form>
-        <label>Product:</label>
-        <input type="text" placeholder="Enter product">
+    <form action="/order" method="POST">
 
-        <br><br>
+    <label>Product:</label>
+    <input type="text" name="product" placeholder="Enter product" required>
 
-        <label>Quantity:</label>
-        <input type="number" placeholder="Enter quantity">
+    <br><br>
 
-        <br><br>
+    <label>Quantity:</label>
+    <input type="number" name="quantity" placeholder="Enter quantity" required>
 
-        <button type="submit">Place Order</button>
-    </form>
+    <br><br>
 
+    <button type="submit">Place Order</button>
+
+</form>
+    
     <h2>System B — Received Orders</h2>
 
     <p>No orders received yet.</p>
