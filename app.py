@@ -14,7 +14,7 @@ def home():
 def create_order():
     product = request.form["product"]
     quantity = request.form["quantity"]
-
+ 
     order = {
         "product": product,
         "quantity": quantity
@@ -23,7 +23,15 @@ def create_order():
     orders.append(order)
 
     return redirect("/")
+@app.route("/webhook", methods=["POST"])
+def webhook():
+    data = request.get_json()
 
+    print("Webhook received:", data)
+
+    return {
+        "message": "Webhook received successfully"
+    }, 200
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
